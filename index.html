@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js"></script>
+    <title>Quadrado</title>
+</head>
+<body>
+
+<main>
+
+<div id="quadrado"></div>
+
+</main>
+
+<script>
+const quadrado = document.getElementById('quadrado');
+
+quadrado.addEventListener('click', () => {
+    const width = quadrado.offsetWidth;
+    const newSize = width + 20;
+    quadrado.style.width = `${newSize}px`;
+    quadrado.style.height = `${newSize}px`;
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Backspace') {
+        const width = quadrado.offsetWidth;
+        const newSize = width - 20;
+
+        if (newSize >= 20) {
+            quadrado.style.width = `${newSize}px`;
+            quadrado.style.height = `${newSize}px`;
+        }
+    }
+});
+
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' && quadrado.matches(':hover')) {
+        quadrado.style.backgroundColor = 'blue';
+    }
+});
+
+document.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+        quadrado.style.backgroundColor = 'red';
+    }
+});
+
+</script>
+
+</body>
+</html>
